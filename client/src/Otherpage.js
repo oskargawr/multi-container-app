@@ -1,13 +1,13 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from "react";
+import { Link } from "react-router-dom";
 
-function Otherpage() {
+const OtherPage = () => {
   return (
     <div>
-        <h1>Other Page</h1>
-        <Link to="/">Go back to the main page</Link>
+      Im some other page!
+      <Link to="/">Go back home</Link>
     </div>
-  )
-}
+  );
+};
 
-export default Otherpage
+export default OtherPage;

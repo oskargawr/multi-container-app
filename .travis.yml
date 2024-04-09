@@ -1,0 +1,16 @@
+language: generic
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t oskargawr/react-test -f ./client/Dockerfile.dev ./client
+
+script:
+  - docker run -e CI=true oskargawr/react-test npm run test
+
+after_success:
+  - docker build -t oskargawr/multi-client ./client
+  - docker build -t oskargawr/multi-nginx ./nginx
+  - docker build -t oskargawr/multi-server ./server
+  - docker build -t oskargawr/multi-worker ./worker
